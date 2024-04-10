@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.12 - 2024-04-10
+
+### Fixed
+- Fix an error when selecting a “Placeholder Avatar” asset.
+
 ## 2.0.11 - 2024-03-04
 
 ### Fixed
