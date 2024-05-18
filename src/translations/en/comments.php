@@ -57,10 +57,11 @@ return [
   'comments_flag_notification_body' => "Hi,\n\n" .
     "A comment has been flagged on the post \"{{ element.title }}\".\n\n" .
     "{{comment.cpEditUrl}}.",
-    
+
   'Add a comment...' => 'Add a comment...',
   'Administrators' => 'Administrators',
   'All comments' => 'All comments',
+  'All {elements}' => 'All {elements}',
   'Approved' => 'Approved',
   'Are you sure you want to delete the selected comments?' => 'Are you sure you want to delete the selected comments?',
   'Are you sure you want to delete this comment?' => 'Are you sure you want to delete this comment?',
@@ -116,7 +117,6 @@ return [
   'Save comments' => 'Save comments',
   'Select which element collections should have commenting enabled on by default.' => 'Select which element collections should have commenting enabled on by default.',
   'Sending comment notification.' => 'Sending comment notification.',
-  'Settings' => 'Settings',
   'Spam' => 'Spam',
   'Status' => 'Status',
   'Structure Info' => 'Structure Info',
