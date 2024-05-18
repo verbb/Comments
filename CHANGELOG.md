@@ -1,23 +1,16 @@
 # Changelog
 
-## 3.0.0-beta.3 - 2024-04-11
-
-### Fixed
-- Fix an error when selecting a “Placeholder Avatar” asset.
-
-## 3.0.0-beta.2 - 2024-03-22
+## 3.0.0 - 2024-05-18
 
 ### Added
 - Add element conditions to allow comments to be filtered in the control panel by custom sources.
 
-### Fixed
-- Fix an error when making a comment.
-
-## 3.0.0-beta.1 - 2024-03-04
-
 ### Changed
 - Now requires PHP `8.2.0+`.
-- Now requires Craft `5.0.0-beta.1+`.
+- Now requires Craft `5.0.0+`.
+
+### Fixed
+- Fix an error when selecting a “Placeholder Avatar” asset.
 
 ## 2.0.12 - 2024-04-10
 
