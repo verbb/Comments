@@ -243,6 +243,12 @@ Comments.Base = Base.extend({
 
         return result;
     },
+
+    emit: function(event, data) {
+        const eventName = 'comments:' + event;
+
+        document.dispatchEvent(new CustomEvent(eventName, { detail: data }));
+    },
 });
 
 Comments.Instance = Comments.Base.extend({
@@ -292,6 +298,7 @@ Comments.Instance = Comments.Base.extend({
         // Clone the comment form before the `init` event, in case third-parties modify the edit form
         this.commentForm = this.$baseForm.cloneNode(true);
 
+        this.emit('init', { comments: this });
     },
 
     onSubmit: function(e) {
@@ -309,11 +316,15 @@ Comments.Instance = Comments.Base.extend({
 
                 // Scroll to the new comment
                 location.hash = '#comment-' + xhr.id;
+
+                this.emit('submit', { comments: this });
             }
 
             // If a comment was successfully submitted but under review
             if (xhr.success) {
                 this.$baseForm.querySelector('form').reset();
+
+                this.emit('submit', { comments: this });
             }
 
         }.bind(this));
@@ -397,9 +408,13 @@ Comments.Comment = Comments.Base.extend({
         if (this.replyForm.isOpen) {
             this.$replyBtn.innerHTML = this.t('reply');
             this.replyForm.closeForm();
+
+            this.instance.emit('reply-close', { comment: this });
         } else {
             this.$replyBtn.innerHTML = this.t('close');
             this.replyForm.openForm();
+
+            this.instance.emit('reply-open', { comment: this });
         }
     },
 
@@ -409,9 +424,13 @@ Comments.Comment = Comments.Base.extend({
         if (this.editForm.isOpen) {
             this.$editBtn.innerHTML = this.t('edit');
             this.editForm.closeForm();
+
+            this.instance.emit('edit-close', { comment: this });
         } else {
             this.$editBtn.innerHTML = this.t('close');
             this.editForm.openForm();
+
+            this.instance.emit('edit-open', { comment: this });
         }
     },
 
@@ -443,6 +462,8 @@ Comments.Comment = Comments.Base.extend({
                     } else if (trashAction === 'refresh') {
                         location.reload();
                     }
+
+                    this.instance.emit('delete', { comment: this });
                 }.bind(this),
                 error: function(errors) {
                     this.setNotifications('error', this.$element, errors);
@@ -469,6 +490,8 @@ Comments.Comment = Comments.Base.extend({
                     console.log(xhr.notice)
                     this.setNotifications('notice', this.$element, xhr.notice);
                 }
+
+                this.instance.emit('flag', { comment: this });
             }.bind(this),
             error: function(errors) {
                 this.setNotifications('error', this.$element, errors);
@@ -487,6 +510,8 @@ Comments.Comment = Comments.Base.extend({
             data: data,
             success: function(xhr) {
                 this.vote(true);
+
+                this.instance.emit('upvote', { comment: this });
             }.bind(this),
             error: function(errors) {
                 this.setNotifications('error', this.$element, errors);
@@ -505,6 +530,8 @@ Comments.Comment = Comments.Base.extend({
             data: data,
             success: function(xhr) {
                 this.vote(false);
+
+                this.instance.emit('downvote', { comment: this });
             }.bind(this),
             error: function(errors) {
                 this.setNotifications('error', this.$element, errors);
@@ -549,6 +576,8 @@ Comments.Comment = Comments.Base.extend({
                 if (!xhr.success) {
                     throw new Error(xhr);
                 }
+
+                this.instance.emit('subscribe', { comment: this });
             }.bind(this),
             error: function(response) {
                 if (response.errors) {
@@ -626,11 +655,15 @@ Comments.ReplyForm = Comments.Base.extend({
                 this.comment.$replyBtn.innerHTML = this.t('reply')
 
                 this.isOpen = false;
+
+                this.instance.emit('reply-submit', { reply: this });
             }
 
             // If a comment was successfully submitted but under review
             if (xhr.success) {
                 this.$form.reset();
+
+                this.instance.emit('reply-submit', { reply: this });
             }
         }.bind(this));
     },
@@ -706,6 +739,8 @@ Comments.EditForm = Comments.Base.extend({
             this.comment.$editBtn.innerHTML = this.t('edit');
 
             this.isOpen = false;
+
+            this.instance.emit('edit-submit', { edit: this });
         }.bind(this));
     },
 });
