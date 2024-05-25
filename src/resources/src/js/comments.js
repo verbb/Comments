@@ -288,6 +288,10 @@ Comments.Instance = Comments.Base.extend({
                 }
             }
         }.bind(this), 2000);
+
+        // Clone the comment form before the `init` event, in case third-parties modify the edit form
+        this.commentForm = this.$baseForm.cloneNode(true);
+
     },
 
     onSubmit: function(e) {
@@ -567,7 +571,7 @@ Comments.ReplyForm = Comments.Base.extend({
     },
 
     setFormHtml: function(comment) {
-        var form = this.instance.$baseForm.cloneNode(true);
+        var form = this.instance.commentForm.cloneNode(true);
 
         // Clear errors and info
         this.clearNotifications(form);
@@ -647,7 +651,7 @@ Comments.EditForm = Comments.Base.extend({
     },
 
     setFormHtml: function() {
-        var form = this.instance.$baseForm.cloneNode(true);
+        var form = this.instance.commentForm.cloneNode(true);
 
         // Clear errors and info
         this.clearNotifications(form);
