@@ -1,6 +1,63 @@
 <?php
 
 return [
+  //
+  // Email Messages
+  //
+  'comments_author_notification_heading' => 'When a comment is received:',
+  'comments_author_notification_subject' => '"{{element.title}}" has received a comment on {{siteName}}.',
+  'comments_author_notification_body' => "Hi {{user.friendlyName}},\n\n" .
+    "A new comment on the post \"{{ element.title }}\" has been made.\n\n" .
+    "{{element.url}}#comment-{{comment.id}}.",
+
+  'comments_reply_notification_heading' => 'When someone replies to another comment:',
+  'comments_reply_notification_subject' => 'Someone has replied to your comment on {{siteName}}.',
+  'comments_reply_notification_body' => "Hi {{user.friendlyName}},\n\n" .
+    "A new reply to your comment on the post \"{{ element.title }}\" has been made.\n\n" .
+    "{{element.url}}#comment-{{comment.id}}.",
+
+  'comments_subscriber_notification_element_heading' => 'When a comment is made on a subscribed element:',
+  'comments_subscriber_notification_element_subject' => 'A new comment has been made on {{ element.title }}',
+  'comments_subscriber_notification_element_body' => "Hi {{user.friendlyName}},\n\n" .
+    "A new comment on the post \"{{ element.title }}\" has been made.\n\n" .
+    "{{element.url}}#comment-{{comment.id}}.",
+
+  'comments_subscriber_notification_comment_heading' => 'When someone replies to another comment they have subscribed to:',
+  'comments_subscriber_notification_comment_subject' => 'A new reply has been made on {{ element.title }}',
+  'comments_subscriber_notification_comment_body' => "Hi {{user.friendlyName}},\n\n" .
+    "A new reply on the post \"{{ element.title }}\" has been made.\n\n" .
+    "{{element.url}}#comment-{{comment.id}}.",
+
+  'comments_moderator_notification_heading' => 'When a comment has been made, and awaits moderation:',
+  'comments_moderator_notification_subject' => 'A new comment requires moderation on {{ siteName }}',
+  'comments_moderator_notification_body' => "Hi {{user.friendlyName}},\n\n" .
+    "A new comment on the post \"{{ element.title }}\" has been made and requires moderation.\n\n" .
+    "{{comment.cpEditUrl}}.",
+
+  'comments_moderator_edit_notification_heading' => 'When a comment has been edited, and awaits moderation:',
+  'comments_moderator_edit_notification_subject' => 'Someone has edited their comment and requires moderation on {{siteName}}.',
+  'comments_moderator_edit_notification_body' => "Hi {{user.friendlyName}},\n\n" .
+    "A comment on the post \"{{ element.title }}\" was edited and requires moderation.\n\n" .
+    "{{comment.cpEditUrl}}.",
+
+  'comments_moderator_approved_notification_heading' => 'When a comment has been approved via moderation:',
+  'comments_moderator_approved_notification_subject' => 'Your comment has been approved on {{ siteName }}',
+  'comments_moderator_approved_notification_body' => "Hi {{user.friendlyName}},\n\n" .
+    "Your comment has been approved on the post \"{{ element.title }}\".\n\n" .
+    "{{element.url}}#comment-{{comment.id}}.",
+
+  'comments_admin_notification_heading' => 'When a comment is received by an admin:',
+  'comments_admin_notification_subject' => '"{{element.title}}" has received a comment on {{siteName}}.',
+  'comments_admin_notification_body' => "Hi,\n\n" .
+    "A new comment on the post \"{{ element.title }}\" has been made.\n\n" .
+    "{{comment.cpEditUrl}}.",
+
+  'comments_flag_notification_heading' => 'When a comment has received a flag:',
+  'comments_flag_notification_subject' => '"{{element.title}}" has received a comment flag on {{siteName}}.',
+  'comments_flag_notification_body' => "Hi,\n\n" .
+    "A comment has been flagged on the post \"{{ element.title }}\".\n\n" .
+    "{{comment.cpEditUrl}}.",
+
   'Add a comment...' => 'Add a comment...',
   'Administrators' => 'Administrators',
   'Admins will receive an email whenever someone flags a comment. Edit the content of this email through [System Messages]({link}).' => 'Admins will receive an email whenever someone flags a comment. Edit the content of this email through [System Messages]({link}).',
@@ -46,33 +103,6 @@ return [
   'Comments Form' => 'Comments Form',
   'Comments from any user in the moderator group will not require moderation themselves.' => 'Comments from any user in the moderator group will not require moderation themselves.',
   'Comments Require Moderation' => 'Comments Require Moderation',
-  'comments_admin_notification_body' => 'comments_admin_notification_body',
-  'comments_admin_notification_heading' => 'comments_admin_notification_heading',
-  'comments_admin_notification_subject' => 'comments_admin_notification_subject',
-  'comments_author_notification_body' => 'comments_author_notification_body',
-  'comments_author_notification_heading' => 'comments_author_notification_heading',
-  'comments_author_notification_subject' => 'comments_author_notification_subject',
-  'comments_flag_notification_body' => 'comments_flag_notification_body',
-  'comments_flag_notification_heading' => 'comments_flag_notification_heading',
-  'comments_flag_notification_subject' => 'comments_flag_notification_subject',
-  'comments_moderator_approved_notification_body' => 'comments_moderator_approved_notification_body',
-  'comments_moderator_approved_notification_heading' => 'comments_moderator_approved_notification_heading',
-  'comments_moderator_approved_notification_subject' => 'comments_moderator_approved_notification_subject',
-  'comments_moderator_edit_notification_body' => 'comments_moderator_edit_notification_body',
-  'comments_moderator_edit_notification_heading' => 'comments_moderator_edit_notification_heading',
-  'comments_moderator_edit_notification_subject' => 'comments_moderator_edit_notification_subject',
-  'comments_moderator_notification_body' => 'comments_moderator_notification_body',
-  'comments_moderator_notification_heading' => 'comments_moderator_notification_heading',
-  'comments_moderator_notification_subject' => 'comments_moderator_notification_subject',
-  'comments_reply_notification_body' => 'comments_reply_notification_body',
-  'comments_reply_notification_heading' => 'comments_reply_notification_heading',
-  'comments_reply_notification_subject' => 'comments_reply_notification_subject',
-  'comments_subscriber_notification_comment_body' => 'comments_subscriber_notification_comment_body',
-  'comments_subscriber_notification_comment_heading' => 'comments_subscriber_notification_comment_heading',
-  'comments_subscriber_notification_comment_subject' => 'comments_subscriber_notification_comment_subject',
-  'comments_subscriber_notification_element_body' => 'comments_subscriber_notification_element_body',
-  'comments_subscriber_notification_element_heading' => 'comments_subscriber_notification_element_heading',
-  'comments_subscriber_notification_element_subject' => 'comments_subscriber_notification_element_subject',
   'Couldn’t save comment.' => 'Couldn’t save comment.',
   'Create comments' => 'Create comments',
   'Created Date' => 'Created Date',
