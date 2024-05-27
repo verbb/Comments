@@ -300,7 +300,7 @@ class Comment extends Element
 
     public function __toString(): string
     {
-        return $this->comment;
+        return (string)$this->comment;
     }
 
     public function init(): void
