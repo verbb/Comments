@@ -56,6 +56,18 @@
     warning: macros.configWarning('showTimeAgo', 'comments'),
 }) }}
 
+{{ forms.selectField({
+    label: 'Comments Order By' | t('comments'),
+    instructions: 'Set the order that comments should be displayed in.' | t('comments'),
+    name: 'orderBy',
+    value: settings.orderBy,
+    options: [
+        { label: 'Descending (new to old)' | t('comments'), value: 'desc' },
+        { label: 'Ascending (old to new)' | t('comments'), value: 'asc' },
+    ],
+    warning: macros.configWarning('orderBy', 'comments'),
+}) }}
+
 <hr>
 
 <h3>{{ 'CSS/JS Resources' | t('comments') }}</h3>

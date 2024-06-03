@@ -57,6 +57,7 @@ class Settings extends Model
     public mixed $placeholderAvatar = null;
     public bool $enableGravatar = false;
     public bool $showTimeAgo = true;
+    public string $orderBy = 'desc';
     public bool $outputDefaultCss = true;
     public bool $outputDefaultJs = true;
 

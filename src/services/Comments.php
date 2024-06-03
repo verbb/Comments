@@ -120,7 +120,7 @@ class Comments extends Component
         $query = Comment::find()
             ->ownerId($elementId)
             ->level('1')
-            ->orderBy('commentDate desc')
+            ->orderBy('commentDate ' . $settings->orderBy)
             ->with([
                 'owner',
                 'parent',
@@ -157,6 +157,7 @@ class Comments extends Component
             'csrfToken' => Craft::$app->getRequest()->getCsrfToken(),
             'recaptchaEnabled' => (bool)$settings->recaptchaEnabled,
             'recaptchaKey' => $settings->getRecaptchaKey(),
+            'orderBy' => $settings->orderBy,
             'translations' => [
                 'reply' => Craft::t('comments', 'Reply'),
                 'close' => Craft::t('comments', 'Close'),
