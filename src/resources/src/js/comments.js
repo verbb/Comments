@@ -297,7 +297,13 @@ Comments.Instance = Comments.Base.extend({
 
             if (xhr.html) {
                 var $html = this.createElement(xhr.html);
-                var $newComment = this.$commentsContainer.insertBefore($html, this.$commentsContainer.firstChild);
+
+                // Insert at top of bottom of list depending on plugin settings
+                if (this.settings.orderBy === 'asc') {
+                    var $newComment = this.$commentsContainer.appendChild($html);
+                } else {
+                    var $newComment = this.$commentsContainer.insertBefore($html, this.$commentsContainer.firstChild);
+                }
 
                 this.comments[xhr.id] = new Comments.Comment(this, $html);
 
