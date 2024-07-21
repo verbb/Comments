@@ -145,6 +145,20 @@
     <hr/>
 
     <div style="word-break: break-word; margin-bottom: 1em;">
+        <h5>{{ 'Email' | t('comments') }}</h5>
+
+        {% if comment.getAuthorEmail() %}
+            <p>
+                <a class="go" href="mailto:{{ comment.getAuthorEmail() }}">
+                    {{ comment.getAuthorEmail() }}
+                </a>
+            </p>
+        {% endif %}
+    </div>
+
+    <hr/>
+
+    <div style="word-break: break-word; margin-bottom: 1em;">
         <h5>{{ 'Element' | t('comments') }}</h5>
 
         {% if comment.owner %}
