@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.13 - 2024-07-21
+
+### Added
+- Add author email to sidebar when editing a comment in the control panel.
+- Add “Comments Order By” plugin setting to control the direction of comments.
+
+### Changed
+- Update English translations.
+- Update non-English translations.
+
 ## 2.0.12 - 2024-04-10
 
 ### Fixed
