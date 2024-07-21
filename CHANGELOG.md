@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.0.1 - 2024-07-21
+
+### Added
+- Add author email to sidebar when editing a comment in the control panel.
+- Add “Comments Order By” plugin setting to control the direction of comments.
+- Add Craft Teams support for permissions.
+- Add JS events for front-end functionality.
+
+### Changed
+- Update English translations.
+- Update non-English translations.
+- Improve reply/edit form cloning.
+
+### Fixed
+- Fix an error when viewing comment replies in the control panel.
+- Fix a type error for a comment’s string representation.
+
 ## 3.0.0 - 2024-05-18
 
 ### Added
