@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.2 - 2024-09-07
+
+### Fixed
+- Fix installation bug. (thanks @timkelty).
+- Fix translations for emails.
+
 ## 3.0.1 - 2024-07-21
 
 ### Added
