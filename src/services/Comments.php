@@ -993,7 +993,9 @@ class Comments extends Component
         $layoutData = $projectConfig->get(self::CONFIG_FIELDLAYOUT_KEY) ?? [];
 
         // If no config data create one from scratch
-        $config = Craft::$app->getRequest()->getBodyParam('settings.fieldLayout');        
+        $config = Craft::$app->getRequest()->isConsoleRequest
+            ? null
+            : Craft::$app->getRequest()->getBodyParam('settings.fieldLayout');
 
         if ($config) {
             $fieldLayout = Craft::$app->getFields()->assembleLayoutFromPost('settings');
