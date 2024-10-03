@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.14 - 2024-10-03
+
+### Changed
+- Change JSON payload for `comment` when creating a comment from the front-end.
+
+### Fixed
+- Fix an error where it was possible to change the commenter email/name to an invalid value.
+
 ## 2.0.13 - 2024-07-21
 
 ### Added
