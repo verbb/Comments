@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.15 - 2024-10-20
+
+### Fixed
+- Fix an error when calling `craft.comments.renderJs()`.
+
 ## 2.0.14 - 2024-10-03
 
 ### Changed
