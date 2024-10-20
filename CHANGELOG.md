@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.0.3 - 2024-10-20
+
+### Added
+- Add French translation. (thanks @scandella).
+
+### Changed
+- Change JSON payload for `comment` when creating a comment from the front-end.
+
+### Fixed
+- Fix an error when calling `craft.comments.renderJs()`.
+- Fix an error where it was possible to change the commenter email/name to an invalid value.
+
 ## 3.0.2 - 2024-09-07
 
 ### Fixed
