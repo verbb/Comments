@@ -246,6 +246,7 @@ return [
   'Unable to delete comment.' => 'Unable to delete comment.',
   'Unable to modify another user’s comment.' => 'Unable to modify another user’s comment.',
   'Unable to update subscribe status.' => 'Unable to update subscribe status.',
+  'Unauthorized.' => 'Unauthorized.',
   'Unsubscribed from discussion.' => 'Unsubscribed from discussion.',
   'Updated Date' => 'Updated Date',
   'URL' => 'URL',

@@ -830,6 +830,21 @@ class Comment extends Element
                 if (!Comments::$plugin->getComments()->checkPermissions($this->getOwner())) {
                     $this->addError('comment', Craft::t('comments', 'Comments are disabled for this element.'));
                 }
+
+                // Are they a guest trying to comment using a users details?
+                if (!$this->userId) {
+                    $matchedUser = User::find()->email($this->email)->status(null)->one();
+
+                    if ($matchedUser) {
+                        $this->addError('comment', Craft::t('comments', 'Unauthorized.'));
+                    }
+                }
+
+                // Are they logged in, but altered their email through POST manipulation?
+                if ($user = $this->getUser()) {
+                    $this->email = null;
+                    $this->name = null;
+                }
             }
 
             // Is this user trying to edit/save/delete a comment that’s not their own?

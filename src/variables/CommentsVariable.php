@@ -73,7 +73,6 @@ class CommentsVariable
         }
 
         $output = [];
-        $output[] = Html::jsFile($url, $attributes);
 
         if ($loadInline) {
             // Wrap JS in our unique function, to prevent it firing early
@@ -84,6 +83,8 @@ class CommentsVariable
     
             $output[] = Html::script($jsString, ['type' => 'text/javascript']);
         }
+        
+        $output[] = Html::jsFile($url, $attributes);
 
         return Template::raw(implode(PHP_EOL, $output));
     }

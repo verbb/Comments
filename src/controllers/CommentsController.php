@@ -172,11 +172,23 @@ class CommentsController extends Controller
         $comment->setScenario(Comment::SCENARIO_FRONT_END);
         $comment->setAction(Comment::ACTION_SAVE);
 
+        $commentData = function(Comment $comment) {
+            return $comment->toArray([
+                'commentDate',
+                'id',
+                'ownerId',
+                'ownerSiteId',
+                'siteId',
+                'status',
+                'uid',
+            ]);
+        };
+
         if (!Craft::$app->getElements()->saveElement($comment, true, false)) {
             if ($this->request->getAcceptsJson()) {
                 return $this->asJson([
                     'success' => false,
-                    'comment' => $comment,
+                    'comment' => $commentData($comment),
                     'errors' => $comment->getErrors(),
                 ]);
             }
@@ -201,7 +213,7 @@ class CommentsController extends Controller
             return $this->asJson([
                 'success' => true,
                 'id' => $comment->id,
-                'comment' => $comment,
+                'comment' => $commentData($comment),
                 'html' => $html,
                 'notice' => $notice,
             ]);
