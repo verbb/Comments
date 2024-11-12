@@ -1096,7 +1096,7 @@ class Comment extends Element
         } else if ($attribute == 'flagCount') {
             return $this->hasFlagged() ? '<span class="status off"></span>' : '<span class="status"></span>';
         } else if ($attribute == 'comment') {
-            return $this->getExcerpt(0, 100);
+            return Html::encode($this->getExcerpt(0, 100));
         }
 
         return parent::attributeHtml($attribute);

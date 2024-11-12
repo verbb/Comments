@@ -856,6 +856,14 @@
       "oAP" : "\/src\/translations\/en\/comments.php",
       "oF" : 0
     },
+    "\/src\/translations\/fr\/comments.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 2,
+      "oAP" : "\/src\/translations\/fr\/comments.php",
+      "oF" : 0
+    },
     "\/src\/translations\/nl\/comments.php" : {
       "cB" : 0,
       "ft" : 8192,
