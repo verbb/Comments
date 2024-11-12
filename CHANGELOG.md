@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.4 - 2024-11-12
+
+### Fixed
+- Fix an XSS issue for comment excerpts.
+
 ## 3.0.3 - 2024-10-20
 
 ### Added
